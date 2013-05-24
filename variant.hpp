@@ -107,13 +107,14 @@ private:
 	};
 
 public:
-	variant(const variant &v)
-		:data_(v.data_)
-	{}
 	template<typename T>
 	variant(const T& v)
 		:data_(new type_holder<T>(v))
 	{}
+	variant(const variant &v)
+		:data_(v.data_)
+	{}
+	
 	bool is_integral() const
 		{ return data()->is_integral(); }
 	bool is_signed() const
