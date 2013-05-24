@@ -55,6 +55,7 @@ int main() {
 
       for ( auto it: arr ) {
          it.dump(std::cout) << std::endl;
+			std::cout << "***************************" << std::endl;
       }
       std::cout << std::endl;
 
