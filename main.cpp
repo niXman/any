@@ -23,6 +23,7 @@ int test_idx = 0;
 /***************************************************************************/
 
 struct type {
+	std::string str;
 	type(const char* str)
 		:str(str)
 	{}
@@ -32,7 +33,6 @@ struct type {
 	{}
 
 private:
-	std::string str;
 	type& operator=(const type&);
 };
 
