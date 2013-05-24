@@ -177,25 +177,27 @@ public:
 
 	std::ostream& dump(std::ostream& os) const {
 		if ( ! is_valid() ) { return os << "not valid" << std::endl; }
-		return os << std::boolalpha
-		<< "is_valid                  : " << is_valid() << std::endl
+		return os
+			<< std::boolalpha
+			<< "is_valid                  : " << is_valid() << std::endl
 #if __cplusplus == 201103L
-		<< "type_id                   : " << type_id().hash_code() << std::endl
+			<< "type_id                   : " << type_id().hash_code() << std::endl
 #endif
-		<< "type_name                 : " << type_name() << std::endl
-		<< "size_of                   : " << size_of() << std::endl
-		<< "alignment_of              : " << alignment_of() << std::endl
-		<< "is_integral               : " << is_integral() << std::endl
-		<< "is_unsigned               : " << is_unsigned() << std::endl
-		<< "is_floating               : " << is_floating() << std::endl
-		<< "is_pointer                : " << is_pointer() << std::endl
-		<< "is_function_pointer       : " << is_function_pointer() << std::endl
-		<< "is_member_data_pointer    : " << is_member_data_pointer() << std::endl
-		<< "is_member_function_pointer: " << is_member_function_pointer() << std::endl
-		<< "is_pod                    : " << is_pod() << std::endl
-		<< "is_class                  : " << is_class() << std::endl
-		<< "is_union                  : " << is_union() << std::endl
-		<< "is_polymorphic            : " << is_polymorphic() << std::endl;
+			<< "type_name                 : " << type_name() << std::endl
+			<< "size_of                   : " << size_of() << std::endl
+			<< "alignment_of              : " << alignment_of() << std::endl
+			<< "is_integral               : " << is_integral() << std::endl
+			<< "is_unsigned               : " << is_unsigned() << std::endl
+			<< "is_floating               : " << is_floating() << std::endl
+			<< "is_pointer                : " << is_pointer() << std::endl
+			<< "is_function_pointer       : " << is_function_pointer() << std::endl
+			<< "is_member_data_pointer    : " << is_member_data_pointer() << std::endl
+			<< "is_member_function_pointer: " << is_member_function_pointer() << std::endl
+			<< "is_pod                    : " << is_pod() << std::endl
+			<< "is_class                  : " << is_class() << std::endl
+			<< "is_union                  : " << is_union() << std::endl
+			<< "is_polymorphic            : " << is_polymorphic() << std::endl
+		;
 	}
 
 private:
