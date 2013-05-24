@@ -114,9 +114,6 @@ public:
 	variant(const T& v)
 		:data_(new type_holder<T>(v))
 	{}
-
-	bool is_valid() const
-		{ return data_.get() != nullptr; }
 	bool is_integral() const
 		{ return data()->is_integral(); }
 	bool is_signed() const
@@ -158,7 +155,6 @@ public:
 
 	template<typename T>
 	T& get() {
-		if ( !data() ) { throw std::runtime_error("variant does not valid"); }
 		if ( data()->is_pointer() ) {
 			if ( !std::is_pointer<T>::value ) { throw std::bad_cast(); }
 			return static_cast<type_holder<T>*>(data())->data_;
@@ -168,7 +164,6 @@ public:
 	}
 	template<typename T>
 	const T& get() const {
-		if ( !data() ) { throw std::runtime_error("variant does not valid"); }
 		if ( data()->is_pointer() ) {
 			if ( !std::is_pointer<T>::value ) { throw std::bad_cast(); }
 			return static_cast<type_holder<T>*>(data())->data_;
@@ -178,10 +173,8 @@ public:
 	}
 
 	std::ostream& dump(std::ostream& os) const {
-		if ( ! is_valid() ) { return os << "not valid" << std::endl; }
 		return os
 			<< std::boolalpha
-			<< "is_valid                  : " << is_valid() << std::endl
 #if __cplusplus == 201103L
 			<< "type_id                   : " << type_id().hash_code() << std::endl
 #endif
