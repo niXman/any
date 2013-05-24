@@ -119,6 +119,8 @@ public:
 		{ return data_.get() != nullptr; }
 	bool is_integral() const
 		{ return data()->is_integral(); }
+	bool is_signed() const
+		{ return data()->is_signed(); }
 	bool is_unsigned() const
 		{ return data()->is_unsigned(); }
 	bool is_floating() const
