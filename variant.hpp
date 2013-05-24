@@ -189,6 +189,7 @@ public:
 			<< "size_of                   : " << size_of() << std::endl
 			<< "alignment_of              : " << alignment_of() << std::endl
 			<< "is_integral               : " << is_integral() << std::endl
+			<< "is_signed                 : " << is_signed() << std::endl
 			<< "is_unsigned               : " << is_unsigned() << std::endl
 			<< "is_floating               : " << is_floating() << std::endl
 			<< "is_pointer                : " << is_pointer() << std::endl
