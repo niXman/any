@@ -1,6 +1,6 @@
 
-#ifndef _variant_hpp_included_
-#define _variant_hpp_included_
+#ifndef any_hpp_included_
+#define any_hpp_included_
 
 #ifdef __GNUG__
 #	define USE_DEMANGLING (1)
@@ -16,7 +16,7 @@
 
 /***************************************************************************/
 
-struct variant {
+struct any {
 private:
 	struct i_type_holder {
 		virtual ~i_type_holder() {}
@@ -117,10 +117,10 @@ private:
 
 public:
 	template<typename T>
-	variant(const T& v)
+	any(const T& v)
 		:data_(new type_holder<T>(v))
 	{}
-	variant(const variant &v)
+	any(const any &v)
 		:data_(v.data_)
 	{}
 	
@@ -213,7 +213,7 @@ public:
 	}
 
 private:
-	friend std::ostream& operator<< (std::ostream& os, const variant& v)
+	friend std::ostream& operator<< (std::ostream& os, const any& v)
 		{ return v.data_->fmt_func(os); }
 
 	std::shared_ptr<i_type_holder> data_;
@@ -221,4 +221,4 @@ private:
 
 /***************************************************************************/
 
-#endif // _variant_hpp_included_
+#endif // any_hpp_included_

@@ -1,5 +1,5 @@
 
-#include "variant.hpp"
+#include "any.hpp"
 
 #include <vector>
 
@@ -44,7 +44,7 @@ std::ostream& operator<< (std::ostream& os, const type& t) {
 
 int main() {
 	try {
-		std::vector<variant> arr;
+		std::vector<any> arr;
 		arr.emplace_back('0');
 		arr.emplace_back(31);
 		arr.emplace_back(32u);
