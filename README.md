@@ -1,4 +1,4 @@
 variant
 =======
 
-extended variant implementation for C++11
+extended generic container for single values of different value types for C++11
