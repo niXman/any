@@ -42,6 +42,17 @@ std::ostream& operator<< (std::ostream& os, const type& t) {
 
 /***************************************************************************/
 
+struct compound {
+	int x;
+	double y;
+};
+
+std::ostream& operator<< (std::ostream& os, const compound& t) {
+	return os << "x=" << t.x << ", y=" << t.y << std::endl;
+}
+
+/***************************************************************************/
+
 int main() {
 	try {
 		std::vector<any> arr;
@@ -52,6 +63,7 @@ int main() {
 		arr.emplace_back(std::string("std::string"));
 		arr.emplace_back(new std::string("ptr to std::string"));
 		arr.emplace_back(type("string"));
+		arr.emplace_back(compound{33, 44.2});
 
 		for ( auto it: arr ) {
 			it.dump(std::cout) << std::endl;
