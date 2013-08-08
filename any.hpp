@@ -53,7 +53,7 @@ private:
 		type_holder(const T& v)
 			:data_(v)
 		{}
-
+		
 		bool is_empty() const
 			{ return std::is_empty<T>::value; }
 		bool is_integral() const
@@ -124,6 +124,8 @@ public:
 		:data_(v.data_)
 	{}
 	
+	bool is_empty() const
+		{ return data_->is_empty(); }
 	bool is_integral() const
 		{ return data_->is_integral(); }
 	bool is_signed() const
@@ -195,6 +197,7 @@ public:
 			<< "type_name                 : " << type_name() << std::endl
 			<< "size_of                   : " << size_of() << std::endl
 			<< "alignment_of              : " << alignment_of() << std::endl
+			<< "is_empty                  : " << is_empty() << std::endl
 			<< "is_integral               : " << is_integral() << std::endl
 			<< "is_signed                 : " << is_signed() << std::endl
 			<< "is_unsigned               : " << is_unsigned() << std::endl
