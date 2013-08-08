@@ -22,14 +22,16 @@ private:
 		virtual ~i_type_holder() {}
 
 		virtual bool is_empty() const = 0;
-		virtual bool is_integral() const = 0;
-		virtual bool is_signed() const = 0;
-		virtual bool is_unsigned() const = 0;
-		virtual bool is_floating() const = 0;
 		virtual bool is_pointer() const = 0;
 		virtual bool is_function_pointer() const = 0;
 		virtual bool is_member_data_pointer() const = 0;
 		virtual bool is_member_function_pointer() const = 0;
+		virtual bool is_fundamental() const = 0;
+		virtual bool is_compound() const = 0;
+		virtual bool is_integral() const = 0;
+		virtual bool is_signed() const = 0;
+		virtual bool is_unsigned() const = 0;
+		virtual bool is_floating() const = 0;
 		virtual bool is_pod() const = 0;
 		virtual bool is_array() const = 0;
 		virtual bool is_enum() const = 0;
@@ -56,14 +58,6 @@ private:
 		
 		bool is_empty() const
 			{ return std::is_empty<T>::value; }
-		bool is_integral() const
-			{ return std::is_integral<T>::value; }
-		bool is_signed() const
-			{ return std::is_signed<T>::value; }
-		bool is_unsigned() const
-			{ return std::is_unsigned<T>::value; }
-		bool is_floating() const
-			{ return std::is_floating_point<T>::value; }
 		bool is_pointer() const
 			{ return std::is_pointer<T>::value; }
 		bool is_function_pointer() const {
@@ -74,6 +68,18 @@ private:
 			{ return std::is_member_object_pointer<T>::value; }
 		bool is_member_function_pointer() const
 			{ return std::is_member_function_pointer<T>::value; }
+		bool is_fundamental() const
+			{ return std::is_fundamental<T>::value; }
+		bool is_compound() const
+			{ return std::is_compound<T>::value; }
+		bool is_integral() const
+			{ return std::is_integral<T>::value; }
+		bool is_signed() const
+			{ return std::is_signed<T>::value; }
+		bool is_unsigned() const
+			{ return std::is_unsigned<T>::value; }
+		bool is_floating() const
+			{ return std::is_floating_point<T>::value; }
 		bool is_pod() const
 			{ return std::is_pod<T>::value; }
 		bool is_array() const
@@ -126,14 +132,6 @@ public:
 	
 	bool is_empty() const
 		{ return data_->is_empty(); }
-	bool is_integral() const
-		{ return data_->is_integral(); }
-	bool is_signed() const
-		{ return data_->is_signed(); }
-	bool is_unsigned() const
-		{ return data_->is_unsigned(); }
-	bool is_floating() const
-		{ return data_->is_floating(); }
 	bool is_pointer() const
 		{ return data_->is_pointer(); }
 	bool is_function_pointer() const
@@ -142,6 +140,18 @@ public:
 		{ return data_->is_member_data_pointer(); }
 	bool is_member_function_pointer() const
 		{ return data_->is_member_function_pointer(); }
+	bool is_fundamental() const
+		{ return data_->is_fundamental(); }
+	bool is_compound() const
+		{ return data_->is_compound(); }
+	bool is_integral() const
+		{ return data_->is_integral(); }
+	bool is_signed() const
+		{ return data_->is_signed(); }
+	bool is_unsigned() const
+		{ return data_->is_unsigned(); }
+	bool is_floating() const
+		{ return data_->is_floating(); }
 	bool is_pod() const
 		{ return data_->is_pod(); }
 	bool is_array() const
@@ -198,14 +208,16 @@ public:
 			<< "size_of                   : " << size_of() << std::endl
 			<< "alignment_of              : " << alignment_of() << std::endl
 			<< "is_empty                  : " << is_empty() << std::endl
-			<< "is_integral               : " << is_integral() << std::endl
-			<< "is_signed                 : " << is_signed() << std::endl
-			<< "is_unsigned               : " << is_unsigned() << std::endl
-			<< "is_floating               : " << is_floating() << std::endl
 			<< "is_pointer                : " << is_pointer() << std::endl
 			<< "is_function_pointer       : " << is_function_pointer() << std::endl
 			<< "is_member_data_pointer    : " << is_member_data_pointer() << std::endl
 			<< "is_member_function_pointer: " << is_member_function_pointer() << std::endl
+			<< "is_fundamental            : " << is_fundamental() << std::endl
+			<< "is_compound               : " << is_compound() << std::endl
+			<< "is_integral               : " << is_integral() << std::endl
+			<< "is_signed                 : " << is_signed() << std::endl
+			<< "is_unsigned               : " << is_unsigned() << std::endl
+			<< "is_floating               : " << is_floating() << std::endl
 			<< "is_pod                    : " << is_pod() << std::endl
 			<< "is_array                  : " << is_array() << std::endl
 			<< "is_enum                   : " << is_enum() << std::endl
