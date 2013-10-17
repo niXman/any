@@ -1,4 +1,3 @@
-
 #include "any.hpp"
 
 #include <vector>
@@ -17,7 +16,7 @@ int test_idx = 0;
 		ok = false; \
 	} \
 	test_idx++; \
-	std::cout << std::boolalpha << "\t\t" << ((expected)==ok) << std::endl; \
+	std::cout << "\t\t" << std::boolalpha << ((expected)==ok) << std::endl; \
 }
 
 /***************************************************************************/
