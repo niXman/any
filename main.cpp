@@ -13,8 +13,8 @@
 		++(passed); \
 	} catch (const std::exception&) { \
 		ok = false; \
-		++(failed); \
 	} \
+	if ( (expected) != ok ) { ++(failed); } \
 	std::cout << "\t\t" << std::boolalpha << ((expected)==ok) << std::endl; \
 }
 
